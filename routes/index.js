@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const testController = require('../controllers/testController');
 
 // Do work here
 router.get('/', (req, res) => {
@@ -9,13 +10,6 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/test/:name/', (req, res) => {
-    const response = {
-        param: req.query.first,
-        param2: req.params.name
-    };
-    console.log("TestLog");
-    res.json(response);
-});
+router.get('/name/:name/', testController.myFunction);
 
 module.exports = router;
